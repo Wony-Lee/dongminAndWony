@@ -1,8 +1,6 @@
-# dongminAndWony
-
 npm install
 
-#client
+# client
 client folder default setting
 
 copmonents
