@@ -1,7 +1,7 @@
-# dependencies injection
+# Dependencies Injection
 npm install
 
-# client
+# Client
 client folder default setting
 
 copmonents
@@ -11,6 +11,6 @@ reducers
 sagas
 store
 
-# server
+# Server
 server folder default setting
 sequelize init
