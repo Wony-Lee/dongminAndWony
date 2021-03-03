@@ -1,45 +1,46 @@
 import React from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import { Menu, Input, Row, Col } from "antd";
 import styled, { createGlobalStyle } from "styled-components";
+
+const Global = createGlobalStyle`
+body {
+      background:ivory;
+      margin:0 auto;
+}
+`;
+
+const TopMenu = styled.div`
+  border: 1px solid black;
+  display: flex;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  align-items: center;
+  height: 70px;
+`;
+
+const LeftMenu = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+`;
+
+const RightMenu = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
 
 const AppLayout = ({ children }) => {
   return (
-    <div>
-      <Menu mode="horizontal" style={{ textAlign: "center" }}>
-        <Menu.Item>
-          <Link href="/">
-            <a>Image Logo</a>
-          </Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link href="/profile">
-            <a>프로필</a>
-          </Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
-        </Menu.Item>
-        <Menu.Item>
-          <Link href="/login">
-            <a>로그인/회원가입</a>
-          </Link>
-        </Menu.Item>
-      </Menu>
-
-      <Row gutter={8} style={{ textAlign: "center" }}>
-        <Col xs={24} md={6}>
-          왼쪽메뉴
-        </Col>
-        <Col xs={24} md={12}>
-          ㅁㄴㅇ
-        </Col>
-        <Col xs={24} md={6}>
-          오른쪽
-        </Col>
-      </Row>
-    </div>
+    <>
+      <Global />
+      <TopMenu>
+        <LeftMenu>imageLogo</LeftMenu>
+        <RightMenu>우측</RightMenu>
+      </TopMenu>
+    </>
   );
 };
 
