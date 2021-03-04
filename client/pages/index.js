@@ -1,11 +1,12 @@
 import React from "react";
 import AppLayout from "../components/AppLayout";
+import Main from "../components/main";
 
 const Home = () => {
   return (
     <>
       <AppLayout>
-        <div>Hello, Next</div>
+        <Main></Main>
       </AppLayout>
     </>
   );
