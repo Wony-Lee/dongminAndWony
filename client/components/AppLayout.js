@@ -1,57 +1,59 @@
 import React from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
-import styled, { createGlobalStyle } from "styled-components";
-import { Col, Row } from "antd";
+import { jsx, css, Global } from "@emotion/react";
+import { injectGlobal } from "@emotion/css";
+import styled from "@emotion/styled";
 
-const Global = createGlobalStyle`
-body {
-      background:ivory;
-      margin:0 auto;
-}
-`;
+injectGlobal`
+body{
+  margin:0 auto;
+  background:ivory;
+}`;
 
-const TopMenu = styled.div`
-  border: 1px solid black;
-  display: flex;
+const menuStyle = css`
   width: 100%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  height: 50px;
   align-items: center;
-  height: 70px;
-  background: white;
 `;
+const MenuBar = ({ children }) => <div css={menuStyle}>{children}</div>;
+/*
+const LeftMenu = () => <div>좌측메뉴</div>;
+const RightMenu = () => <div>우측메뉴</div>; */
 
 const LeftMenu = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 100%;
-  padding-left: 10%;
+  width: 80%;
+  margin-left: 20%;
 `;
-
 const RightMenu = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 100%;
-  padding-right: 10%;
+  width: 80%;
+  margin-right: 20%;
+`;
+const CenterMenu = styled.input`
+  border: 1px solid red;
+  border-radius: 15px;
+  outline: none;
+  height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 
 const AppLayout = ({ children }) => {
   return (
     <>
-      <Global />
-      <TopMenu>
-        <LeftMenu>imageLogo</LeftMenu>
-        <RightMenu>우측</RightMenu>
-      </TopMenu>
-
-      <Col xs={24} md={6}>
-        asd
-      </Col>
-      <Col xs={24} md={12}>
-        {children}
-      </Col>
-      <Col xs={24} md={6}>
-        asd
-      </Col>
+      <injectGlobal />
+      <MenuBar>
+        <LeftMenu>images logo</LeftMenu>
+        <CenterMenu />
+        <RightMenu>SideMenu</RightMenu>
+      </MenuBar>
     </>
   );
 };
