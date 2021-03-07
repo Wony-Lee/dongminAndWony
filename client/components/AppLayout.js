@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import PropTypes from "prop-types";
 import { jsx, css, Global } from "@emotion/react";
@@ -39,7 +39,7 @@ const RightMenu = styled.div`
   width: 80%;
   margin-right: 15%;
 `;
-const CenterMenu = styled.input`
+const CenterInput = styled.input`
   border: 0;
   border-radius: 8px;
   width: 100%;
@@ -88,11 +88,13 @@ const FooterArea = styled.div`
   align-items: center;
 `;
 const AppLayout = ({ children }) => {
+  const [SearchInput, setSearchInput] = useState();
+
   return (
     <>
       <MenuBar>
         <LeftMenu>images logo</LeftMenu>
-        <CenterMenu />
+        <CenterInput type="text" value={SearchInput} />
         <RightMenu>SideMenu</RightMenu>
       </MenuBar>
       <CarouselArea>
