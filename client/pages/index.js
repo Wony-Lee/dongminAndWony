@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <AppLayout>
-        <Main></Main>
+        <div>Made In Wony</div>
       </AppLayout>
     </>
   );
